@@ -3,6 +3,8 @@ Animates elements inside a {{> AnimateWithVelocity}} block, by adding specific a
 Requires at least Meteor version 0.8.3-rc5
 <!-- Demo: http://templatesession2demo.meteor.com -->
 
+This package uses the new UI_hooks, allowing for animation when elements get add AND removed.
+
 Installation
 ============
 
@@ -33,5 +35,7 @@ Wrap the templates or template parts with the {{#Animate}}..{{/Animate}} helper 
 	data-duration: 200, // milliseconds
 	data-from-value: 0,
 	data-to-value: 1
+
+For properties to animate look at the velocity documentation at http://julian.com/research/velocity/
 
 Note: You can use the attributes in plural or singular form as you wish.
