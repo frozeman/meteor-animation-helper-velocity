@@ -9,6 +9,7 @@ Package.on_use(function (api) {
     api.use('templating', 'client');
     api.use('jquery', 'client');
 
+    api.use('velocityjs', 'client');
 
     // FILES
     api.add_files('animation-helper-velocity.html', 'client');
