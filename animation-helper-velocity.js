@@ -16,9 +16,9 @@ Template['AnimateWithVelocity'].rendered = function(){
         // prevent when the insertElement hook already animated
         if(!$item.hasClass('animating')) {
             var animationProperty = generateAnimationProperties(item);
-
             $item.velocity(animationProperty.from, {duration:0}).velocity(animationProperty.to, {
                 duration: $item.data('duration') || defaultDuration,
+                easing: animationProperty.easingIn[animationProperty.property],
                 complete: function () {
                     $item = null;
                 }
@@ -36,9 +36,9 @@ Template['AnimateWithVelocity'].rendered = function(){
 
             if(typeof $node.data('animate') !== 'undefined') {
                 var animationProperty = generateAnimationProperties(node);
-
                 $node.velocity(animationProperty.from, {duration:0}).velocity(animationProperty.to, {
                     duration: $node.data('duration') || defaultDuration,
+                    easing: animationProperty.easingIn[animationProperty.property],
                     complete: function () {
                         $node = null;
                     }
@@ -57,6 +57,7 @@ Template['AnimateWithVelocity'].rendered = function(){
                 // animate
                 $node.velocity(animationProperty.from, {
                     duration: $node.data('duration') || defaultDuration,
+                    easing: animationProperty.easingOut[animationProperty.property],
                     complete: function () {
                         $node.remove();
                         $node = null;
@@ -83,13 +84,18 @@ Generate the property object for animation
 */
 var generateAnimationProperties = function(element) {
     var animationProperty = {
+            property: 'opacity',
             from: {},
-            to: {}
+            to: {},
+            easingIn: {},
+            easingOut: {}
         },
         $element = $(element),
         properties = ['opacity'],
         fromValues = [0],
-        toValues = [1];
+        toValues = [1],
+        easingsInValues = ['linear'],
+        easingsOutValues = ['linear'];
 
 
     // use singular, or plural
@@ -104,17 +110,28 @@ var generateAnimationProperties = function(element) {
     toValues = typeof $element.data('to-value') !== 'undefined'
         ? String($element.data('to-value')).split(',')
         : ((typeof $element.data('to-values') !== 'undefined') ? String($element.data('to-values')).split(',') : toValues);
-    
+
+    easingsInValues = typeof $element.data('easing-in') !== 'undefined'
+        ? String($element.data('easing-in')).split(',')
+        : ((typeof $element.data('easing-in') !== 'undefined') ? String($element.data('easing-in')).split(',') : easingsInValues);
+
+    easingsOutValues = typeof $element.data('easing-out') !== 'undefined'
+        ? String($element.data('easing-out')).split(',')
+        : ((typeof $element.data('easing-out') !== 'undefined') ? String($element.data('easing-out')).split(',') : easingsOutValues);
 
     // go through each property and respective value and add them to the
     _.each(properties, function(property, index){
         property = _.trim(property),
         fromValue = fromValues[index] ? _.trim(fromValues[index]) : fromValues[0],
         toValue = toValues[index]? _.trim(toValues[index]) : toValues[0];
+        easingInValue = easingsInValues[index]? _.trim(easingsInValues[index]) : easingsInValues[0];
+        easingOutValue = easingsOutValues[index]? _.trim(easingsOutValues[index]) : easingsOutValues[0];
 
+        animationProperty.property = property;
         animationProperty.from[property] = fromValue;
         animationProperty.to[property] = toValue;
+        animationProperty.easingIn[property] = easingInValue;
+        animationProperty.easingOut[property] = easingOutValue;
     });
-
     return animationProperty;
 };
