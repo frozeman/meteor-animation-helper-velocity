@@ -7,6 +7,10 @@ Aniamtion-Helper
 var defaultDuration = 200;
 
 
+/**
+The renderd method, which adds the hooks.
+
+*/
 Template['AnimateWithVelocity'].rendered = function(){
 
     // HACK: initial animation rendered, as insertElement, doesn't seem to fire

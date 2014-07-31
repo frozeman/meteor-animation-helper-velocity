@@ -30,11 +30,13 @@ Wrap the templates or template parts with the {{#Animate}}..{{/Animate}} helper 
 		</div>
 	{{/AnimateWithVelocity}}
 
-## Defaults
+## Attributes and defaults
 	data-property: 'opacity',
 	data-duration: 200, // milliseconds
 	data-from-value: 0,
-	data-to-value: 1
+	data-to-value: 1,
+	data-easing-in: 'linear',
+	data-easing-out: 'linear'
 
 For properties to animate look at the velocity documentation at http://julian.com/research/velocity/
 
