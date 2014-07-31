@@ -10,6 +10,7 @@ Package.on_use(function (api) {
     api.use('jquery', 'client');
 
     api.use('velocityjs', 'client');
+    api.use('underscore-string-latest', 'client');
 
     // FILES
     api.add_files('animation-helper-velocity.html', 'client');
