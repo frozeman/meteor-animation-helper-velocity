@@ -82,13 +82,6 @@ Template['AnimateWithVelocity'].rendered = function(){
     };
 };
 
-/**
-The destroyed method, which remove the hooks to make sure, they work again next time.
-
-*/
-Template['AnimateWithVelocity'].destroyed = function(){
-    this._animation_helper_parentNode._uihooks = null;
-};
 
 
 // METHODS
