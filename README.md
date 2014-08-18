@@ -30,6 +30,12 @@ Wrap the templates or template parts with the {{#Animate}}..{{/Animate}} helper 
 		</div>
 	{{/AnimateWithVelocity}}
 
+Animation is triggered on render by default, if you want to disable it add:
+
+    data-animate-on-render : 'false'
+
+to your data-animate element.
+
 ## Attributes and defaults
 	data-property: 'opacity',
 	data-duration: 200, // milliseconds
@@ -37,6 +43,7 @@ Wrap the templates or template parts with the {{#Animate}}..{{/Animate}} helper 
 	data-to-value: 1,
 	data-easing-in: 'linear',
 	data-easing-out: 'linear'
+	data-animate-on-render : 'true'
 
 For properties to animate look at the velocity documentation at http://julian.com/research/velocity/
 
