@@ -32,7 +32,10 @@ Template['AnimateWithVelocity'].rendered = function(){
         }
     });
 
-    this._animation_helper_parentNode._uihooks = {
+    // add the parentNode te the instance, so we can access it in the destroyed function
+    var parentNode = this.firstNode.parentNode;
+
+    parentNode._uihooks = {
         insertElement: function (node, next) {
 
             var $node = $(node);
