@@ -3,7 +3,7 @@
   "description": "Animates elements inside a {{> AnimateWithVelocity}} block, by adding specific attributes to elements.",
   "homepage": "https://github.com/frozeman/meteor-animation-helper-velocity",
   "author": "Fabian Vogelsteller (http://frozeman.de)",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "git": "https://github.com/frozeman/meteor-animation-helper-velocity.git",
   "packages": {
   	"velocityjs": {},
