@@ -32,7 +32,7 @@ Wrap the templates or template parts with the {{#Animate}}..{{/Animate}} helper 
 
 Animation is triggered on render by default, if you want to disable it add:
 
-    data-animate-on-render : 'false'
+    data-animate-on-render="false"
 
 to your data-animate element.
 
