@@ -14,14 +14,14 @@ The renderd method, which adds the hooks.
 Template['AnimateWithVelocity'].rendered = function(){
 
     // HACK: initial animation rendered, as insertElement, doesn't seem to fire
-    _.each(this.findAll('*[data-animate]'), function(item){
-        var $item = $(item);
+    this.$('*[data-animate]').each(function(){
+        var $item = $(this);
         
         
         // prevent when the insertElement hook already animated and avoid animation on rendering if animate-on-render option is false
         var animateOnRender = $item.data('animate-on-render') === false ? false : true;
         if(!$item.hasClass('animating') && animateOnRender) {
-            var animationProperty = generateAnimationProperties(item);
+            var animationProperty = generateAnimationProperties(this);
             $item.velocity(animationProperty.from, {duration: 0}).velocity(animationProperty.to, {
                 duration: $item.data('duration') || defaultDuration,
                 easing: animationProperty.easingIn[animationProperty.property],
