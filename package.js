@@ -1,6 +1,6 @@
 Package.describe({
     name: "mrt:animation-helper-velocity",
-    summary: "Animates elements inside a {{> AnimateWithVelocity}} block, by adding specific attributes to elements.",
+    summary: "Animates elements inside a {{> AnimateWithVelocity}} block by adding attributes.",
     version: "0.1.2",
     git: "https://github.com/frozeman/meteor-animation-helper-velocity.git"
 });
@@ -15,7 +15,7 @@ Package.onUse(function (api) {
 
     // thirdparty
     api.use('sewdn:velocityjs@0.8.0', 'client');
-    api.use('underscore-string-latest', 'client');
+    api.use('mrt:underscore-string-latest@2.3.3', 'client');
 
     // FILES
     api.addFiles('animation-helper-velocity.html', 'client');
