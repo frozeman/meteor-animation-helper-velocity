@@ -14,7 +14,7 @@ Usage
 =====
 
 
-Wrap the templates or template parts with the {{#Animate}}..{{/Animate}} helper and add the animate class to it. Then you can specify the `data-property`, `data-from-value` and `data-to-value` attributes to animate elements:
+Wrap templates or template parts with the {{#AnimateWithVelocity}}..{{/AnimateWithVelocity}} helper. Elements with the `data-animate` attribute and additional attributes will be animated when Meteor adds or removes them (e.g. when using {{#if}}...{{/if}} statements, or rendering templates):
 
 	{{#AnimateWithVelocity}}
 		<div data-animate data-property="opacity" data-duration="500" data-from-value="0" data-to-value="1">
@@ -30,13 +30,11 @@ Wrap the templates or template parts with the {{#Animate}}..{{/Animate}} helper 
 		</div>
 	{{/AnimateWithVelocity}}
 
-Animation is triggered on render by default, if you want to disable it add:
+Note: Animation is triggered on render by default, if you want to disable it add the following attribute to your data-animate element:
 
     data-animate-on-render="false"
 
-to your data-animate element.
-
-## Attributes and defaults
+## Possible attributes and defaults
 	data-property: 'opacity',
 	data-duration: 200, // milliseconds
 	data-from-value: 0,
@@ -47,4 +45,4 @@ to your data-animate element.
 
 For properties to animate look at the velocity documentation at http://julian.com/research/velocity/
 
-Note: You can use the attributes in plural or singular form as you wish.
+Note: You can use the attributes in plural or singular form as you wish (`data-to-value` or `data-to-values`).
