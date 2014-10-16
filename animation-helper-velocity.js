@@ -12,7 +12,7 @@ The renderd method, which adds the hooks.
 
 */
 Template['AnimateWithVelocity'].rendered = function(){
-
+    
     // HACK: initial animation rendered, as insertElement, doesn't seem to fire
     this.$('*[data-animate]').each(function(){
         var $item = $(this);
@@ -31,11 +31,8 @@ Template['AnimateWithVelocity'].rendered = function(){
             });
         }
     });
-
-    // add the parentNode te the instance, so we can access it in the destroyed function
-    this._animation_helper_firstNode = this.firstNode;
-
-    this._animation_helper_firstNode.parentNode._uihooks = {
+    
+    this.firstNode.parentNode._uihooks = {
         insertElement: function (node, next) {
 
             var $node = $(node);
@@ -80,18 +77,6 @@ Template['AnimateWithVelocity'].rendered = function(){
 
         }
     };
-};
-
-/**
-The destroyed method, which remove the hooks to make sure, they work again next time.
-
-*/
-Template['AnimateWithVelocity'].destroyed = function(){
-    var template = this;
-    Meteor.defer(function() {
-        if(template && template._animation_helper_firstNode && template._animation_helper_firstNode.parentNode && template._animation_helper_firstNode.parentNode._uihooks)
-            template._animation_helper_firstNode.parentNode._uihooks = null;
-    });
 };
 
 
