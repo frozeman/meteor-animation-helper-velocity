@@ -1,14 +1,11 @@
 Animates elements inside a {{> AnimateWithVelocity}} block, by adding specific attributes to elements.
 
-Requires at least Meteor version 0.9.0
-<!-- Demo: http://templatesession2demo.meteor.com -->
-
 This package uses the new UI_hooks, allowing for animation when elements get add AND removed.
 
 Installation
 ============
 
-    $ meteor add mrt:animation-helper-velocity
+    $ meteor add frozeman:animation-helper-velocity
 
 Usage
 =====

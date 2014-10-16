@@ -1,7 +1,7 @@
 Package.describe({
-    name: "mrt:animation-helper-velocity",
+    name: "frozeman:animation-helper-velocity",
     summary: "Animates elements inside a {{> AnimateWithVelocity}} block by adding attributes.",
-    version: "0.1.4",
+    version: "0.1.7",
     git: "https://github.com/frozeman/meteor-animation-helper-velocity.git"
 });
 
