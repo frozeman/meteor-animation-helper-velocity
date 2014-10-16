@@ -88,10 +88,10 @@ The destroyed method, which remove the hooks to make sure, they work again next 
 */
 Template['AnimateWithVelocity'].destroyed = function(){
     var template = this;
-    // Meteor.defer(function() {
+    Meteor.defer(function() {
         if(template && template._animation_helper_firstNode && template._animation_helper_firstNode.parentNode && template._animation_helper_firstNode.parentNode._uihooks)
             template._animation_helper_firstNode.parentNode._uihooks = null;
-    // });
+    });
 };
 
 
