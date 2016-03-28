@@ -1,12 +1,12 @@
 Package.describe({
-    name: "frozeman:animation-helper-velocity",
+    name: "gantrim:animation-helper-velocity",
     summary: "Animates elements inside a {{> AnimateWithVelocity}} block by adding attributes.",
     version: "0.1.8",
     git: "https://github.com/frozeman/meteor-animation-helper-velocity.git"
 });
 
 Package.onUse(function (api) {
-    api.versionsFrom('METEOR@0.9.0');
+    api.versionsFrom('METEOR@1.2.1');
 
     // core
     api.use('underscore', 'client');
@@ -14,7 +14,6 @@ Package.onUse(function (api) {
     api.use('jquery', 'client');
 
     // thirdparty
-    api.use('sewdn:velocityjs@0.8.0', 'client');
     api.use('mrt:underscore-string-latest@2.3.3', 'client');
 
     // FILES
