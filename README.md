@@ -2,6 +2,13 @@ Animates elements inside a {{> AnimateWithVelocity}} block, by adding specific a
 
 This package uses the new UI_hooks, allowing for animation when elements get add AND removed.
 
+Pre-requisites
+============
+This package does not include an implementation of VelocityJS. This allows you to use any version of velocity that you like. In order for this package to work you must add a VelocityJS package yourself:
+```
+meteor add velocityjs:velocityjs
+```
+
 Installation
 ============
 
